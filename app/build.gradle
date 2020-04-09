@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion 29
@@ -26,11 +27,57 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  implementation 'androidx.appcompat:appcompat:1.1.0'
-  implementation 'androidx.core:core-ktx:1.2.0'
-  testImplementation 'junit:junit:4.12'
-  androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-  androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+  def moshiVersion="1.8.0"
+  def retrofitVersion = "2.5.0"
+  def retrofitCoroutinesAdapterVersion = "0.9.2"
+  def okhttpVersion = "3.12.0"
+  def kotlinCoroutinesVersion = "1.0.1"
+  def cardViewVersion = "1.0.0"
+  def recyclerViewVersion = "1.1.0"
+  def appCompatVersion = "1.1.0"
+  def constraintLayoutVersion = "1.1.3"
+  def coreKtxVersion = "1.2.0"
+  def mockitoVersion = "2.27.0"
+  def mockitoKotlinVersion = "2.1.0"
+  def coreTestingVersion = "2.1.0-beta01"
+  def junitVersion = "2.1.0-beta01"
+  def coroutinesVersion = "1.2.2"
+
+  implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+  implementation "androidx.appcompat:appcompat:$appCompatVersion"
+  implementation "androidx.cardview:cardview:$cardViewVersion"
+  implementation "com.android.support.constraint:constraint-layout:$constraintLayoutVersion"
+
+  // KTX
+  implementation "androidx.core:core-ktx:$coreKtxVersion"
+
+  //Moshi
+  implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+  implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
+  kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+
+  //Retrofit2
+  implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+  implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
+  implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofitCoroutinesAdapterVersion"
+
+  //Okhttp3
+  implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+  implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+  //Kotlin Coroutines
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+
+  testImplementation "junit:junit:$junitVersion"
+  testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+  testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion") {
+    exclude group: 'org.mockito', module: 'mockito-core'
+  }
+  testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
 }
