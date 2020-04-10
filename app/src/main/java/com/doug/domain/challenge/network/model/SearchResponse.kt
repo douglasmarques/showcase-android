@@ -4,11 +4,11 @@ import com.squareup.moshi.Json
 
 data class SearchResponse(
     @Json(name = "results_returned")
-    val resultsReturned: Int? = null,
+    val resultsReturned: Int,
     @Json(name = "tracking")
     val tracking: Tracking? = null,
     @Json(name = "results_total")
-    val resultsTotal: Int? = null,
+    val resultsTotal: Int,
     @Json(name = "search_results")
     val searchResults: List<SearchResult>? = null
 )
@@ -103,19 +103,19 @@ data class AddressComponents(
     val postcode: String? = null
 )
 
-class Images {
+data class Images (
     @Json(name = "logo_url")
     val logoUrl: String? = null
-}
+)
 
-class AgencyListingContact(
+data class AgencyListingContact(
     @Json(name = "display_full_name")
     val displayFullName: String? = null,
     @Json(name = "image_url")
     val imageUrl: String? = null
 )
 
-class Medium(
+data class Medium(
     @Json(name = "image_url")
     val imageUrl: String? = null,
     @Json(name = "type")
@@ -131,15 +131,15 @@ data class GeoLocation(
     val longitude: Float? = null
 )
 
-class Topspot {
+data class Topspot (
     @Json(name = "available_listings")
     val availableListings: Int? = null
-}
+)
 
-class Metadata {
+data class Metadata (
     @Json(name = "address_components")
     val addressComponents: AddressComponents? = null
-}
+)
 
 data class Project(
     @Json(name = "child_listings")

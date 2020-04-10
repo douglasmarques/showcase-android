@@ -12,7 +12,7 @@ interface DomainApi {
     }
 
     @POST("search")
-    fun search(request: SearchRequest): Deferred<SearchResponse>
+    suspend fun search(request: SearchRequest): SearchResponse
 
 }
 
