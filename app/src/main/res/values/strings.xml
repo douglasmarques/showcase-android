@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">DomainChallenge</string>
+
+    <!--Dialogs -->
+    <string name="dialog_error_title">Error</string>
+    <string name="dialog_positive_button_label">OK</string>
+    <string name="dialog_error_generic">Sorry something went wrong please try again</string>
+
+    <!--Facts screen -->
+    <string name="empty_state">No properties found.</string>
 </resources>
