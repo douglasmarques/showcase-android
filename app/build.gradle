@@ -62,6 +62,8 @@ dependencies {
   def junitVersion = "2.1.0-beta01"
   def coroutinesVersion = "1.2.2"
   def picassoVersion = "2.71828"
+  def lifecycleVersion = "2.2.0"
+  def navigationVersion = "2.2.0-rc03"
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -91,10 +93,20 @@ dependencies {
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
 
+  // Navigation
+  implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+  implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+
   //Picasso for Image Loading
   implementation ("com.squareup.picasso:picasso:$picassoVersion"){
     exclude group: "com.android.support"
   }
+
+  // Lifecycle extensions + ViewModel
+  implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+  implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+  kapt "androidx.lifecycle:lifecycle-commom-java8:$lifecycleVersion"
 
   // Test libraries
   testImplementation "junit:junit:$junitVersion"
