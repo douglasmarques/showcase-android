@@ -17,9 +17,21 @@ android {
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
   }
 
+  signingConfigs {
+    release {
+      keyAlias 'domain'
+      keyPassword 'domain'
+      storeFile file('../Keystore/domain')
+      storePassword 'domain'
+    }
+  }
+
   buildTypes {
     release {
-      minifyEnabled true
+      debuggable false
+      minifyEnabled false
+      shrinkResources false
+      signingConfig signingConfigs.release
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
 
