@@ -2,7 +2,7 @@ package com.doug.domain.challenge.network
 
 import com.doug.domain.challenge.network.model.SearchRequest
 import com.doug.domain.challenge.network.model.SearchResponse
-import kotlinx.coroutines.Deferred
+import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface DomainApi {
@@ -12,7 +12,7 @@ interface DomainApi {
     }
 
     @POST("search")
-    suspend fun search(request: SearchRequest): SearchResponse
+    suspend fun search(@Body request: SearchRequest): SearchResponse
 
 }
 
