@@ -6,6 +6,7 @@
     <string name="dialog_positive_button_label">OK</string>
     <string name="dialog_error_generic">Sorry something went wrong please try again</string>
 
-    <!--Facts screen -->
+    <!--Properties screen -->
     <string name="empty_state">No properties found.</string>
+    <string name="details_text">%1$.2f bed, %2$.2f bath, %3$d car</string>
 </resources>

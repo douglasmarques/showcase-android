@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/small"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/propertyImageView"
+            android:layout_width="200dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="@dimen/medium"
+            android:contentDescription="@null"
+            android:padding="@dimen/medium"
+            android:src="@drawable/ic_img_placeholder"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/priceTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium"
+            android:paddingStart="@dimen/large"
+            android:paddingEnd="@dimen/large"
+            android:textColor="@color/darkBlue"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Contact Agent" />
+
+        <TextView
+            android:id="@+id/detailsTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/large"
+            android:paddingEnd="@dimen/large"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
+            app:layout_constraintTop_toBottomOf="@+id/priceTextView"
+            tools:text="3 bed, 2 bath, 4 car" />
+
+        <TextView
+            android:id="@+id/addressTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/large"
+            android:paddingEnd="@dimen/large"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
+            app:layout_constraintTop_toBottomOf="@+id/detailsTextView"
+            tools:text="51 Imperial Avenue, Bondi" />
+
+        <ImageView
+            android:id="@+id/agencyLogoImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/large"
+            android:contentDescription="@null"
+            android:padding="@dimen/medium"
+            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
+            app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

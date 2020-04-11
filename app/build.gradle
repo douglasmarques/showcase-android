@@ -61,6 +61,7 @@ dependencies {
   def coreTestingVersion = "2.1.0-beta01"
   def junitVersion = "2.1.0-beta01"
   def coroutinesVersion = "1.2.2"
+  def picassoVersion = "2.71828"
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -89,6 +90,11 @@ dependencies {
   //Kotlin Coroutines
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutinesVersion"
   implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutinesVersion"
+
+  //Picasso for Image Loading
+  implementation ("com.squareup.picasso:picasso:$picassoVersion"){
+    exclude group: "com.android.support"
+  }
 
   // Test libraries
   testImplementation "junit:junit:$junitVersion"
