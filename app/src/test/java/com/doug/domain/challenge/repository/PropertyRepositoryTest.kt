@@ -1,10 +1,13 @@
 package com.doug.domain.challenge.repository
 
 import com.doug.domain.challenge.network.DomainApi
-import com.doug.domain.challenge.network.model.*
+import com.doug.domain.challenge.network.model.SearchRequest
+import com.doug.domain.challenge.network.model.SearchResponse
 import com.doug.domain.challenge.repository.domain.DwellingType.*
 import com.doug.domain.challenge.repository.domain.Property
 import com.doug.domain.challenge.repository.domain.SearchType
+import com.doug.domain.challenge.test.data.PropertyTestDataFactory.createTestProperty
+import com.doug.domain.challenge.test.data.PropertyTestDataFactory.createTestSearchResult
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
 import kotlinx.coroutines.runBlocking
@@ -13,7 +16,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.junit.MockitoJUnitRunner
 import java.util.*
-
 
 @RunWith(MockitoJUnitRunner::class)
 class PropertyRepositoryTest {
@@ -37,7 +39,9 @@ class PropertyRepositoryTest {
         }
         repository = PropertyRepository(mockApi)
         runBlocking {
-            assertEquals(listOf(createTestProperty()), repository.search(SearchType.BUY))
+            val propertyList = repository.search(SearchType.BUY)
+            assertEquals(listOf(createTestProperty()), propertyList)
+            assertEquals(1, propertyList.size)
         }
     }
 
@@ -56,34 +60,9 @@ class PropertyRepositoryTest {
         }
         repository = PropertyRepository(mockApi)
         runBlocking {
-            assertEquals(emptyList<Property>(), repository.search(SearchType.BUY))
+            val propertyList = repository.search(SearchType.BUY)
+            assertEquals(emptyList<Property>(), propertyList)
+            assertEquals(true, propertyList.isEmpty())
         }
     }
-
-    private fun createTestSearchResult(): SearchResult = SearchResult(
-        advertiser = Advertiser(
-            images = Images(
-                logoUrl = "http://some.logo"
-            )
-        ),
-        media = listOf(
-            Medium(
-                type = "photo",
-                imageUrl = "http://image.url"
-            )
-        ),
-        price = "$500.000",
-        bathroomCount = 2f,
-        bedroomCount = 3f,
-        carspaceCount = 1
-    )
-
-    private fun createTestProperty(): Property = Property(
-        image = "http://image.url",
-        price = "$500.000",
-        agencyLogo = "http://some.logo",
-        baths = 2f,
-        beds = 3f,
-        carSpaces = 1
-    )
 }

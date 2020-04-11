@@ -106,7 +106,7 @@ dependencies {
   implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
   implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
-  kapt "androidx.lifecycle:lifecycle-commom-java8:$lifecycleVersion"
+  kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
 
   // Test libraries
   testImplementation "junit:junit:$junitVersion"
