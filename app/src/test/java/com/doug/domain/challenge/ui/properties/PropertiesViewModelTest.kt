@@ -1,6 +1,7 @@
 package com.doug.domain.challenge.ui.properties
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.doug.domain.challenge.R
 import com.doug.domain.challenge.repository.PropertyRepository
 import com.doug.domain.challenge.repository.domain.Property
 import com.doug.domain.challenge.repository.domain.SearchType
@@ -8,10 +9,11 @@ import com.doug.domain.challenge.test.CoroutinesTestRule
 import com.doug.domain.challenge.test.data.PropertyTestDataFactory.createTestProperty
 import com.doug.domain.challenge.test.testObserver
 import com.nhaarman.mockitokotlin2.doReturn
+import com.nhaarman.mockitokotlin2.doThrow
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verifyBlocking
-import junit.framework.Assert.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.junit.Assert.assertEquals
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -34,12 +36,7 @@ class PropertiesViewModelTest {
     lateinit var viewModel: PropertiesViewModel
 
     @Test
-    fun searchProperty() {
-
-    }
-
-    @Test
-    fun `factListObserver should be empty when the repository has no facts`() {
+    fun `listObserver should be empty when the repository has no property`() {
         repository = mock {
             onBlocking { search(SearchType.RENT) } doReturn emptyList()
         }
@@ -59,7 +56,7 @@ class PropertiesViewModelTest {
 
 
     @Test
-    fun `factListObserver should contain one fact when the repository returns one fact`() {
+    fun `listObserver should contain one property when the repository returns one property`() {
         val properties = listOf(createTestProperty())
         repository = mock {
             onBlocking { search(SearchType.RENT) } doReturn properties
@@ -78,4 +75,23 @@ class PropertiesViewModelTest {
         assertEquals(properties, viewModel.propertyListObserver.value)
         assertEquals(1, viewModel.propertyListObserver.value?.size)
     }
+
+    @Test
+    fun `error state should have the generic error when the repository throws an exception`() {
+        repository = mock {
+            onBlocking { search(SearchType.BUY) } doThrow (RuntimeException())
+        }
+        viewModel = PropertiesViewModel(repository)
+
+        viewModel.propertyListObserver.testObserver()
+        viewModel.errorObserver.testObserver()
+        viewModel.loadingObserver.testObserver()
+
+        viewModel.searchProperty(SearchType.BUY)
+        verifyBlocking(repository, { repository.search(SearchType.BUY) })
+
+        assertEquals(viewModel.errorObserver.value, R.string.dialog_error_generic)
+        assertEquals(viewModel.loadingObserver.value, false)
+    }
+
 }

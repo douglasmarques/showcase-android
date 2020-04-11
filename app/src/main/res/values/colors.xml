@@ -5,9 +5,10 @@
     <color name="colorAccent">@color/purple</color>
 
     <color name="white">#ffffff</color>
+    <color name="white_transparent_40">#66FFFFFF</color>
     <color name="grey">#f7f7f7</color>
     <color name="black">#000000</color>
     <color name="blue">#259be4</color>
     <color name="purple">#b276c7</color>
-    <color name="darkBlue">#0A3B78</color>
+    <color name="darkBlue">#1a77d4</color>
 </resources>
