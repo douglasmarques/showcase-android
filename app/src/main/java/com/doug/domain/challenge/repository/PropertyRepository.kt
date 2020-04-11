@@ -35,10 +35,11 @@ class PropertyRepository(
     private fun createProperty(result: SearchResult) = Property(
         image = getPropertyImage(result.media),
         price = result.price ?: "",
-        beds = result.bedroomCount ?: 0f,
-        baths = result.bathroomCount ?: 0f,
+        beds = result.bedroomCount?.toInt() ?: 0,
+        baths = result.bathroomCount?.toInt() ?: 0,
         carSpaces = result.carspaceCount ?: 0,
-        agencyLogo = result.advertiser?.images?.logoUrl ?: ""
+        agencyLogo = result.advertiser?.images?.logoUrl ?: "",
+        address = result.address ?: ""
     )
 
     private fun getPropertyImage(media: List<Medium>?): String {

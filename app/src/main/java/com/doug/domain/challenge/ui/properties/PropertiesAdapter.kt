@@ -35,6 +35,7 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
         holder.setImage(property.image)
         holder.setPrice(property.price)
         holder.setDetails(property.beds, property.baths, property.carSpaces)
+        holder.setAddress(property.address)
         holder.setAgencyLogo(property.agencyLogo)
     }
 
@@ -55,7 +56,7 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
             itemView.priceTextView.text = price
         }
 
-        fun setDetails(beds: Float, baths: Float, carSpaces: Int) {
+        fun setDetails(beds: Int, baths: Int, carSpaces: Int) {
             itemView.detailsTextView.text = itemView.context.getString(
                 R.string.details_text,
                 beds,
@@ -64,11 +65,14 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
             )
         }
 
+        fun setAddress(address: String) {
+            itemView.addressTextView.text = address
+        }
+
         fun setAgencyLogo(imageUrl: String) {
             if (imageUrl.isNotEmpty()) {
                 Picasso.get()
                     .load(imageUrl)
-                    .centerCrop()
                     .fit()
                     .into(itemView.agencyLogoImageView)
             }

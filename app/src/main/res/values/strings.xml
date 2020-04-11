@@ -8,5 +8,6 @@
 
     <!--Properties screen -->
     <string name="empty_state">No properties found.</string>
-    <string name="details_text">%1$.2f bed, %2$.2f bath, %3$d car</string>
+    <string name="details_text">%1$d bed, %2$d bath, %3$d car</string>
+    <string name="properties_title">Property List</string>
 </resources>
