@@ -13,6 +13,7 @@ object PropertyTestDataFactory {
     const val BEDS = 3f
     const val BATHS = 2f
     const val CAR_SPACE = 1
+    const val ADDRESS = "10 Bondi Road, Bondi, NSW"
 
     fun createTestSearchResult(): SearchResult = SearchResult(
         advertiser = Advertiser(
@@ -29,15 +30,17 @@ object PropertyTestDataFactory {
         price = PRICE,
         bathroomCount = BATHS,
         bedroomCount = BEDS,
-        carspaceCount = CAR_SPACE
+        carspaceCount = CAR_SPACE,
+        address = ADDRESS
     )
 
     fun createTestProperty(): Property = Property(
         image = IMAGE_URL,
         price = PRICE,
         agencyLogo = LOGO_URL,
-        baths = BATHS,
-        beds = BEDS,
-        carSpaces = 1
+        baths = BATHS.toInt(),
+        beds = BEDS.toInt(),
+        carSpaces = 1,
+        address = ADDRESS
     )
 }
