@@ -34,8 +34,9 @@ class PropertyRepository(
         price = result.price ?: "",
         beds = result.bedroomCount?.toInt() ?: 0,
         baths = result.bathroomCount?.toInt() ?: 0,
-        carSpaces = result.carspaceCount ?: 0,
+        parking = result.carspaceCount ?: 0,
         agencyLogo = result.advertiser?.images?.logoUrl ?: "",
+        agencyColor = result.advertiser?.preferredColorHex ?: "",
         address = result.address ?: ""
     )
 

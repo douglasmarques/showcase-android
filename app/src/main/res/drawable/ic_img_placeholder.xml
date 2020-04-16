@@ -4,9 +4,6 @@
     android:width="190dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <path
-        android:fillColor="#F8F8F8"
-        android:pathData="M-0.5,1h500.25v500h-500.25z" />
-    <path
         android:fillColor="#777777"
         android:pathData="M182.315,196.75v106.5h135.37v-106.5H182.315L182.315,196.75zM306.78,291.703H193.864v-83.404H306.78V291.703L306.78,291.703z" />
     <path

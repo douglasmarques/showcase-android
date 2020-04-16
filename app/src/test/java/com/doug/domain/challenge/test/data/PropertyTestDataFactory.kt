@@ -7,19 +7,21 @@ import com.doug.domain.challenge.network.model.SearchResult
 import com.doug.domain.challenge.repository.domain.Property
 
 object PropertyTestDataFactory {
-    const val LOGO_URL = "http://some.logo"
     const val IMAGE_URL = "http://image.url"
     const val PRICE = "$500.000"
     const val BEDS = 3f
     const val BATHS = 2f
     const val CAR_SPACE = 1
     const val ADDRESS = "10 Bondi Road, Bondi, NSW"
+    const val AGENCY_LOGO_URL = "http://some.logo"
+    const val AGENCY_COLOR_HEX = "#ffffff"
 
     fun createTestSearchResult(): SearchResult = SearchResult(
         advertiser = Advertiser(
             images = Images(
-                logoUrl = LOGO_URL
-            )
+                logoUrl = AGENCY_LOGO_URL
+            ),
+            preferredColorHex = AGENCY_COLOR_HEX
         ),
         media = listOf(
             Medium(
@@ -37,10 +39,11 @@ object PropertyTestDataFactory {
     fun createTestProperty(): Property = Property(
         image = IMAGE_URL,
         price = PRICE,
-        agencyLogo = LOGO_URL,
+        agencyLogo = AGENCY_LOGO_URL,
+        agencyColor = AGENCY_COLOR_HEX,
         baths = BATHS.toInt(),
         beds = BEDS.toInt(),
-        carSpaces = 1,
+        parking = 1,
         address = ADDRESS
     )
 }

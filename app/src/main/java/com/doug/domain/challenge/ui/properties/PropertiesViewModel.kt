@@ -34,8 +34,4 @@ class PropertiesViewModel constructor(
             errorObserver.value = R.string.dialog_error_generic
         }
     }
-
-    override fun onCleared() {
-        super.onCleared()
-    }
 }

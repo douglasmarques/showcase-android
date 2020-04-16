@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/medium"
+    android:layout_marginTop="@dimen/medium"
+    android:layout_marginBottom="@dimen/medium"
     android:background="@color/white"
     android:elevation="2dp">
 
@@ -15,17 +16,22 @@
 
         <ImageView
             android:id="@+id/propertyImageView"
-            android:layout_width="190dp"
-            android:layout_height="160dp"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
             android:contentDescription="@null"
-            android:paddingStart="@dimen/large"
-            android:paddingTop="@dimen/medium"
-            android:paddingEnd="@dimen/large"
-            android:paddingBottom="@dimen/medium"
             android:src="@drawable/ic_img_placeholder"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/agencyLogoImageView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:contentDescription="@null"
+            android:padding="@dimen/medium"
+            android:scaleType="fitEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/propertyImageView" />
 
         <TextView
             android:id="@+id/priceTextView"
@@ -34,28 +40,12 @@
             android:paddingStart="@dimen/medium"
             android:paddingTop="@dimen/large"
             android:paddingEnd="@dimen/medium"
-            android:textColor="@color/purple"
-            android:textSize="22sp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agencyLogoImageView"
             tools:text="Contact Agent" />
-
-        <TextView
-            android:id="@+id/detailsTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="38dp"
-            android:paddingStart="@dimen/medium"
-            android:paddingTop="@dimen/small"
-            android:paddingEnd="@dimen/medium"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
-            app:layout_constraintTop_toBottomOf="@+id/priceTextView"
-            tools:text="3 bed, 2 bath, 4 car" />
 
         <TextView
             android:id="@+id/addressTextView"
@@ -64,24 +54,56 @@
             android:paddingStart="@dimen/medium"
             android:paddingTop="@dimen/small"
             android:paddingEnd="@dimen/medium"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
-            app:layout_constraintTop_toBottomOf="@+id/detailsTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priceTextView"
             tools:text="51 Imperial Avenue, Bondi" />
 
-        <ImageView
-            android:id="@+id/agencyLogoImageView"
-            android:layout_width="180dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="@dimen/medium"
-            android:layout_marginEnd="@dimen/large"
-            android:layout_marginTop="@dimen/medium"
-            android:layout_marginBottom="@dimen/large"
-            android:contentDescription="@null"
+        <TextView
+            android:id="@+id/bedsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_bed"
+            android:paddingStart="@dimen/medium"
+            android:paddingTop="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            android:drawablePadding="@dimen/small"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/propertyImageView"
-            app:layout_constraintTop_toBottomOf="@+id/addressTextView" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addressTextView"
+            tools:text="1" />
+
+        <TextView
+            android:id="@+id/bathsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/medium"
+            android:paddingTop="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            android:drawableEnd="@drawable/ic_bath"
+            android:drawablePadding="@dimen/small"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bedsTextView"
+            app:layout_constraintTop_toBottomOf="@id/addressTextView"
+            tools:text="2" />
+
+        <TextView
+            android:id="@+id/parkingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/medium"
+            android:paddingTop="@dimen/small"
+            android:paddingEnd="@dimen/small"
+            android:drawableEnd="@drawable/ic_car"
+            android:drawablePadding="@dimen/small"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/bathsTextView"
+            app:layout_constraintTop_toBottomOf="@id/addressTextView"
+            tools:text="3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

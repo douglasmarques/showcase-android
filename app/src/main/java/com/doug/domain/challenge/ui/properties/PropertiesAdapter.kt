@@ -1,5 +1,7 @@
 package com.doug.domain.challenge.ui.properties
 
+import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,18 +36,19 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
         val property = properties[position]
         holder.setImage(property.image)
         holder.setPrice(property.price)
-        holder.setDetails(property.beds, property.baths, property.carSpaces)
+        holder.setBeds(property.beds)
+        holder.setBaths(property.baths)
+        holder.setParking(property.parking)
         holder.setAddress(property.address)
-        holder.setAgencyLogo(property.agencyLogo)
+        holder.setAgencyLogo(property.agencyLogo, property.agencyColor)
     }
 
     inner class ViewHolder constructor(view: View) : RecyclerView.ViewHolder(view) {
         fun setImage(imageUrl: String?) {
             if (imageUrl?.isNotEmpty() == true) {
-                // Use picasso to load the image and set a placeholder on the image view
+                // Use picasso to load the image
                 Picasso.get()
                     .load(imageUrl)
-                    .placeholder(R.drawable.ic_img_placeholder)
                     .centerCrop()
                     .fit()
                     .into(itemView.propertyImageView)
@@ -56,24 +59,40 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
             itemView.priceTextView.text = price
         }
 
-        fun setDetails(beds: Int, baths: Int, carSpaces: Int) {
-            itemView.detailsTextView.text = itemView.context.getString(
-                R.string.details_text,
-                beds,
-                baths,
-                carSpaces
-            )
+        fun setBeds(beds: Int) {
+            itemView.bedsTextView.text = beds.toString()
+        }
+
+        fun setBaths(baths: Int) {
+            itemView.bathsTextView.text = baths.toString()
+        }
+
+        fun setParking(carSpaces: Int) {
+            if (carSpaces > 0) {
+                itemView.visibility = View.GONE
+            } else {
+                itemView.visibility = View.VISIBLE
+                itemView.parkingTextView.text = carSpaces.toString()
+            }
         }
 
         fun setAddress(address: String) {
             itemView.addressTextView.text = address
         }
 
-        fun setAgencyLogo(imageUrl: String) {
+        fun setAgencyLogo(imageUrl: String, color: String) {
+            if (color.isNotEmpty()) {
+                try {
+                    itemView.agencyLogoImageView.setBackgroundColor(Color.parseColor(color))
+                    // some colors are displayed on short Hex code like #fff and parseColor
+                    // doesn't resolve them
+                } catch (ex: IllegalArgumentException) {
+                    Log.e("PropertiesAdapter", "invalid color: $color", ex)
+                }
+            }
             if (imageUrl.isNotEmpty()) {
                 Picasso.get()
                     .load(imageUrl)
-                    .fit()
                     .into(itemView.agencyLogoImageView)
             }
         }

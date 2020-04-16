@@ -5,7 +5,8 @@ data class Property(
     val price: String,
     val beds: Int,
     val baths: Int,
-    val carSpaces: Int,
+    val parking: Int,
     val agencyLogo: String,
+    val agencyColor: String,
     val address: String
 )
