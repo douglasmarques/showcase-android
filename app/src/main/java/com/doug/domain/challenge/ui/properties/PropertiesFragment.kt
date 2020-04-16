@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doug.domain.challenge.R
 import com.doug.domain.challenge.repository.domain.SearchType
 import com.doug.domain.challenge.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_properties.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PropertiesFragment : BaseFragment() {
 
@@ -28,7 +28,7 @@ class PropertiesFragment : BaseFragment() {
         }
     }
 
-    private val viewModel by activityViewModels<PropertiesViewModel>()
+    private val viewModel by viewModel<PropertiesViewModel>()
     private val adapter by lazy {
         PropertiesAdapter()
     }

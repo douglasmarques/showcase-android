@@ -75,6 +75,7 @@ dependencies {
   def picassoVersion = "2.71828"
   def lifecycleVersion = "2.2.0"
   def navigationVersion = "2.2.0-rc03"
+  def koinVersion = "2.0.1"
 
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
@@ -117,6 +118,11 @@ dependencies {
   implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
   kapt "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion"
+
+  // Koin for dependence injections
+  implementation "org.koin:koin-android:$koinVersion"
+  implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+  implementation "org.koin:koin-androidx-scope:$koinVersion"
 
   // Test libraries
   testImplementation "junit:junit:$junitVersion"

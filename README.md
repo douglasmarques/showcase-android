@@ -33,7 +33,6 @@ The unit tests are using two additional test rules to provide the proper executo
 
 ## Next-Steps
 
-- Include Dagger or Koin library to do dependency injection and handle dependencies scopes
 - Create UI tests using espresso.
 - Integrate lint and code style tools to improve the code quality and style.
 - Integrate some CI tool like Circle CI to automatically run Unit tests and code quality steps every time the code is pushed to the repository.

@@ -1,6 +1,5 @@
 package com.doug.domain.challenge.repository
 
-import com.doug.domain.challenge.network.ApiFactory
 import com.doug.domain.challenge.network.DomainApi
 import com.doug.domain.challenge.network.model.Medium
 import com.doug.domain.challenge.network.model.SearchRequest
@@ -11,11 +10,11 @@ import com.doug.domain.challenge.repository.domain.SearchType
 import java.util.*
 
 class PropertyRepository(
-    private val domainApi: DomainApi = ApiFactory().domainApi
+    private val domainApi: DomainApi
 ) {
 
     /**
-     * Search for properties on the api and converts them domain models.
+     * Search for properties on the api and converts them to domain models.
      */
     suspend fun search(type: SearchType): List<Property> {
         val searchRequest = SearchRequest(

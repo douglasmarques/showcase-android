@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Find the fragment navigation host setup the app's navigation through
+        // Find the fragment navigation host and setup the app's navigation through
         // the navigation graph (@navigation/navigation_graph)
         val navController = findNavController(R.id.fragmentNavHost)
         val configuration = AppBarConfiguration(navController.graph)

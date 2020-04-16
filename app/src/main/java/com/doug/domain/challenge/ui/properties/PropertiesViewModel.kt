@@ -10,7 +10,7 @@ import com.doug.domain.challenge.repository.domain.SearchType
 import kotlinx.coroutines.launch
 
 class PropertiesViewModel constructor(
-    private val propertiesRepository: PropertyRepository = PropertyRepository()
+    private val propertiesRepository: PropertyRepository
 ) : ViewModel() {
 
     val propertyListObserver = MutableLiveData<List<Property>>()
