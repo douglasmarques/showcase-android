@@ -22,14 +22,14 @@ class PropertyRepository(
             searchMode = type.toString().toLowerCase(Locale.ROOT)
         )
         val response = domainApi.search(searchRequest)
-        return response.searchResults?.filter {
-            it.listingType != "project"
-        }?.map { result ->
+        return response.searchResults?.map { result ->
             createProperty(result)
         } ?: emptyList()
     }
 
     private fun createProperty(result: SearchResult) = Property(
+        id = result.id,
+        type = result.dwellingType,
         image = getPropertyImage(result.media),
         price = result.price ?: "",
         beds = result.bedroomCount?.toInt() ?: 0,

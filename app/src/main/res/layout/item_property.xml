@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="260dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_img_placeholder"
+            tools:src="@drawable/ic_img_placeholder"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,7 +83,6 @@
             android:paddingEnd="@dimen/small"
             android:drawableEnd="@drawable/ic_bath"
             android:drawablePadding="@dimen/small"
-            android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/bedsTextView"
             app:layout_constraintTop_toBottomOf="@id/addressTextView"
@@ -98,8 +97,6 @@
             android:paddingEnd="@dimen/small"
             android:drawableEnd="@drawable/ic_car"
             android:drawablePadding="@dimen/small"
-            android:ellipsize="end"
-            android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/bathsTextView"
             app:layout_constraintTop_toBottomOf="@id/addressTextView"

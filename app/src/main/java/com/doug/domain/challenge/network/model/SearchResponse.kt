@@ -14,6 +14,10 @@ data class SearchResponse(
 )
 
 data class SearchResult(
+    @Json(name = "id")
+    val id: Int,
+    @Json(name = "dwelling_type")
+    val dwellingType: String?,
     @Json(name = "advertiser")
     val advertiser: Advertiser? = null,
     @Json(name = "price")
@@ -30,10 +34,6 @@ data class SearchResult(
     val listingType: String? = null,
     @Json(name = "homepass_enabled")
     val homepassEnabled: Boolean? = null,
-    @Json(name = "id")
-    val id: Int? = null,
-    @Json(name = "dwelling_type")
-    val dwellingType: String? = null,
     @Json(name = "promo_level")
     val promoLevel: String? = null,
     @Json(name = "bathroom_count")

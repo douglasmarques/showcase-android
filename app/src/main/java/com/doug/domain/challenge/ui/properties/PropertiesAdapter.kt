@@ -49,6 +49,7 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
                 // Use picasso to load the image
                 Picasso.get()
                     .load(imageUrl)
+                    .placeholder(R.drawable.ic_img_placeholder)
                     .centerCrop()
                     .fit()
                     .into(itemView.propertyImageView)
@@ -68,12 +69,7 @@ class PropertiesAdapter : RecyclerView.Adapter<PropertiesAdapter.ViewHolder>() {
         }
 
         fun setParking(carSpaces: Int) {
-            if (carSpaces > 0) {
-                itemView.visibility = View.GONE
-            } else {
-                itemView.visibility = View.VISIBLE
-                itemView.parkingTextView.text = carSpaces.toString()
-            }
+            itemView.parkingTextView.text = carSpaces.toString()
         }
 
         fun setAddress(address: String) {

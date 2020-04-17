@@ -7,16 +7,20 @@ import com.doug.domain.challenge.network.model.SearchResult
 import com.doug.domain.challenge.repository.domain.Property
 
 object PropertyTestDataFactory {
-    const val IMAGE_URL = "http://image.url"
-    const val PRICE = "$500.000"
-    const val BEDS = 3f
-    const val BATHS = 2f
-    const val CAR_SPACE = 1
-    const val ADDRESS = "10 Bondi Road, Bondi, NSW"
-    const val AGENCY_LOGO_URL = "http://some.logo"
-    const val AGENCY_COLOR_HEX = "#ffffff"
+    private const val ID = 1
+    private const val TYPE = "project"
+    private const val IMAGE_URL = "http://image.url"
+    private const val PRICE = "$500.000"
+    private const val BEDS = 3f
+    private const val BATHS = 2f
+    private const val CAR_SPACE = 1
+    private const val ADDRESS = "10 Bondi Road, Bondi, NSW"
+    private const val AGENCY_LOGO_URL = "http://some.logo"
+    private const val AGENCY_COLOR_HEX = "#ffffff"
 
     fun createTestSearchResult(): SearchResult = SearchResult(
+        id = ID,
+        dwellingType = TYPE,
         advertiser = Advertiser(
             images = Images(
                 logoUrl = AGENCY_LOGO_URL
@@ -37,6 +41,8 @@ object PropertyTestDataFactory {
     )
 
     fun createTestProperty(): Property = Property(
+        id = ID,
+        type = TYPE,
         image = IMAGE_URL,
         price = PRICE,
         agencyLogo = AGENCY_LOGO_URL,
