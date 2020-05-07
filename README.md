@@ -1,5 +1,5 @@
 
-## Domain Challenge - ViewModel + LiveData + Coroutines + Navigation Component
+## Code Challenge - ViewModel + LiveData + Coroutines + Navigation Component + Koin
 
 ### MVVM
 
@@ -14,9 +14,9 @@ This layer was implemented using Jetpack ViewModel and LiveData to expose the ob
 
 ### Single Activity App
 
-The app is very simple in terms of navigation and has only one screen, it was built using he Navigation Architecture Component to simplified the implementation of the Single Activity concept. Basically, the App has the MainActivty responsible for holding the NavHostFragment and one Fragment that displays the Property list.
+The app is very simple in terms of navigation and has only one screen, it was built using the Navigation Architecture Component to simplify the implementation of the Single Activity concept. Basically, the App has the MainActivty responsible for holding the NavHostFragment and one Fragment that displays the Property list.
 
-### Courotines
+### Coroutines
 
 Coroutines were introduced to handle asynchronous calls. They are mainly used to handle the Network calls and they work really well with the JetPack ViewModel and Retrofit.
 
@@ -35,4 +35,3 @@ The unit tests are using two additional test rules to provide the proper executo
 
 - Create UI tests using espresso.
 - Integrate lint and code style tools to improve the code quality and style.
-- Integrate some CI tool like Circle CI to automatically run Unit tests and code quality steps every time the code is pushed to the repository.
