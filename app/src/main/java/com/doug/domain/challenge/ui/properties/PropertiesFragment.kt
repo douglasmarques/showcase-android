@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.doug.domain.challenge.R
@@ -16,30 +15,16 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PropertiesFragment : BaseFragment() {
 
-    companion object {
-        private const val TYPE = "TYPE"
-
-        fun newInstance(searchType: SearchType): PropertiesFragment {
-            return PropertiesFragment().apply {
-                arguments = bundleOf(
-                    TYPE to searchType
-                )
-            }
-        }
-    }
-
     private val viewModel by viewModel<PropertiesViewModel>()
     private val adapter by lazy {
         PropertiesAdapter()
     }
-    private var selectedType = SearchType.RENT
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        selectedType = arguments?.get(TYPE) as? SearchType ?: SearchType.RENT
         return inflater.inflate(R.layout.fragment_properties, container, false)
     }
 
@@ -51,7 +36,7 @@ class PropertiesFragment : BaseFragment() {
         observeViewModel()
 
         // call view model to search the properties
-        viewModel.searchProperty(selectedType)
+        viewModel.searchProperty(SearchType.RENT)
 
     }
 
@@ -68,7 +53,7 @@ class PropertiesFragment : BaseFragment() {
             )
         }
         swipeRefreshLayout.setOnRefreshListener {
-            viewModel.searchProperty(selectedType)
+            viewModel.searchProperty(SearchType.RENT)
         }
     }
 
