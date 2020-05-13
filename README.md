@@ -1,5 +1,6 @@
-
-## Code Challenge - ViewModel + LiveData + Coroutines + Navigation Component + Koin
+# Android showcase
+[![CircleCI](https://circleci.com/gh/douglasmarques/showcase-android.svg?style=shield)](https://circleci.com/gh/douglasmarques/showcase-android)
+[![Kotlin Version](https://img.shields.io/badge/Kotlin-1.3.72-blue.svg)](https://kotlinlang.org)
 
 ### MVVM
 
