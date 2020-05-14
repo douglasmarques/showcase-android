@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+ android: circleci/android@0.2.0
+
+jobs:
+  build:
+    executor: android/android
+    steps:
+      - checkout
+      - run:
+          command: ./gradlew buildDebug
+
+  unit_test:
+    executor: android/android
+    steps:
+      - checkout
+      - run:
+          command: ./gradlew testDebug
+      - store_test_results:
+          path: app/build/test-results/testDebugUnitTest
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - unit_test
