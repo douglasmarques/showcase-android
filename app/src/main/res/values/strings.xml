@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DomainChallenge</string>
+    <string name="app_name">Showcase</string>
 
     <!--Dialogs -->
     <string name="dialog_error_title">Error</string>
