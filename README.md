@@ -1,4 +1,4 @@
-# Android showcase
+## Android showcase
 [![CircleCI](https://circleci.com/gh/douglasmarques/showcase-android.svg?style=shield)](https://circleci.com/gh/douglasmarques/showcase-android)
 [![Kotlin Version](https://img.shields.io/badge/Kotlin-1.3.72-blue.svg)](https://kotlinlang.org)
 [![Gradle](https://img.shields.io/badge/Gradle-5.6.4-blue?style=flat)](https://gradle.org)
@@ -40,7 +40,6 @@ The unit tests are using two additional test rules to provide the proper executo
 
 ## Next-Steps
 
-- Create UI tests using espresso.
-- Integrate lint and code style tools to improve the code quality and style.
-- Cache data on the repository to avoid extra network calls
-- Implement DiffUtils on the recycler view.
+  - Create UI tests using espresso.
+  - Cache data on the repository to avoid extra network calls
+  - Implement DiffUtils on the recycler view.
