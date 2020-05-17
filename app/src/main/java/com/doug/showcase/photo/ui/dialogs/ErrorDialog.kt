@@ -1,4 +1,4 @@
-package com.doug.showcase.ui.dialogs
+package com.doug.showcase.photo.ui.dialogs
 
 import android.app.Dialog
 import android.os.Bundle

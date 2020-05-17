@@ -6,11 +6,7 @@
     <string name="dialog_positive_button_label">OK</string>
     <string name="dialog_error_generic">Sorry something went wrong please try again</string>
 
-    <!--main fragment -->
-    <string name="rent_tab">Rent</string>
-    <string name="buy_tab">Buy</string>
-
-    <!--Properties fragment -->
-    <string name="empty_state">No properties found.</string>
-    <string name="properties_title">Property List</string>
+    <!--Photos fragment -->
+    <string name="no_photos_found">No photos found.</string>
+    <string name="search_photos">Search photos…</string>
 </resources>

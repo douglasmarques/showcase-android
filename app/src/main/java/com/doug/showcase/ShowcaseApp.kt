@@ -1,10 +1,10 @@
 package com.doug.showcase
 
 import android.app.Application
-import com.doug.showcase.di.apiModule
-import com.doug.showcase.di.repositoryModule
-import com.doug.showcase.di.retrofitModule
-import com.doug.showcase.di.viewModelModule
+import com.doug.showcase.photo.di.apiModule
+import com.doug.showcase.photo.di.repositoryModule
+import com.doug.showcase.photo.di.retrofitModule
+import com.doug.showcase.photo.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

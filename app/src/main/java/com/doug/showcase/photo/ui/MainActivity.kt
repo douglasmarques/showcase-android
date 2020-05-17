@@ -1,4 +1,4 @@
-package com.doug.showcase.ui
+package com.doug.showcase.photo.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

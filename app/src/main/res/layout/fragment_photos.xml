@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.properties.PropertiesFragment">
+    tools:context=".photo.ui.photos.PhotosFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
@@ -17,8 +17,10 @@
             android:layout_height="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:itemCount="6"
-            tools:listitem="@layout/item_property" />
+            tools:itemCount="30"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/item_photo" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <TextView
@@ -26,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/empty_state"
+        android:visibility="gone"
+        android:text="@string/no_photos_found"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

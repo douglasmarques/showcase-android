@@ -1,11 +1,4 @@
-## Android showcase
-[![CircleCI](https://circleci.com/gh/douglasmarques/showcase-android.svg?style=shield)](https://circleci.com/gh/douglasmarques/showcase-android)
-[![Kotlin Version](https://img.shields.io/badge/Kotlin-1.3.72-blue.svg)](https://kotlinlang.org)
-[![Gradle](https://img.shields.io/badge/Gradle-5.6.4-blue?style=flat)](https://gradle.org)
-
-[![codebeat badge](https://codebeat.co/badges/ba9fae6e-77d2-4173-8587-36ac8756676b)](https://codebeat.co/projects/github-com-go-ble-ble-master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9d1e27b36235434cad003e4ba01e303e)](https://www.codacy.com/manual/douglasmarques/showcase-android?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=douglasmarques/showcase-android&amp;utm_campaign=Badge_Grade)
-[![CodeFactor](https://www.codefactor.io/repository/github/douglasmarques/showcase-android/badge)](https://www.codefactor.io/repository/github/douglasmarques/showcase-android)
+## Android Code Challenge
 
 ### MVVM
 
@@ -21,7 +14,7 @@ This layer was implemented using JetPack ViewModel and LiveData to expose the ob
 ### Single Activity App
 
 The app is very simple in terms of navigation and has only one screen, that has a recycler view and display a list of properties.
-The app was built using the Navigation Architecture Component to simplify the implementation of the Single Activity concept. It has just one activity and one fragment responsible to display the property list.
+The app was built using the Navigation Architecture Component to simplify the implementation of the Single Activity concept. It has just one activity and one fragment responsible to display the photo list.
 
 ### Coroutines
 

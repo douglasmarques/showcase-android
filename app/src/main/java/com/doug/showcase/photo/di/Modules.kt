@@ -1,9 +1,9 @@
-package com.doug.showcase.di
+package com.doug.showcase.photo.di
 
 import com.doug.showcase.BuildConfig
-import com.doug.showcase.network.Api
-import com.doug.showcase.repository.PropertyRepository
-import com.doug.showcase.ui.properties.PropertiesViewModel
+import com.doug.showcase.photo.network.Api
+import com.doug.showcase.photo.repository.PhotoRepository
+import com.doug.showcase.photo.ui.photos.PhotosViewModel
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
@@ -14,25 +14,21 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 /**
- * Koin modules responsible for creating the dependencies and inject where necessary.
+ * Koin module responsible for creating the dependencies and inject where necessary.
  */
 
 val viewModelModule = module {
-    viewModel {
-        PropertiesViewModel(get())
-    }
+    viewModel { PhotosViewModel(get()) }
 }
 
 val repositoryModule = module {
     single {
-        PropertyRepository(get())
+        PhotoRepository(get())
     }
 }
 
 val apiModule = module {
-    fun provideApi(retrofit: Retrofit): Api {
-        return retrofit.create(Api::class.java)
-    }
+    fun provideApi(retrofit: Retrofit): Api = retrofit.create(Api::class.java)
     single { provideApi(get()) }
 }
 
